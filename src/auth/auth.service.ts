@@ -69,13 +69,13 @@ export class AuthService {
       port: 465,
       secure: true,
       auth: {
-        user: 'network@skeletos.in',
-        pass: 'Pass@2023',
+        user: '',
+        pass: '',
       },
     });
 
     const mailOptions = {
-      from: '"No Reply" <network@skeletos.in>',
+      from: '"No Reply" <>',
       to: email,
       subject: 'verify email',
       html: `<p>Sip, Relax, Repeat OTP: <strong>${otp}</strong> Chill Mode On</p>`,
