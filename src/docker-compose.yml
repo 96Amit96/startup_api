@@ -2,8 +2,8 @@ version: '3'
 services:
   backend:
     build:
-      context: ./devops/startup_api/Docker-files/app
-      dockerfile: Docker-files/Dockerfile
+      context: /home/devops/startup_api/Docker-files/app
+      dockerfile: /home/devops/startup_api/Docker-files/app/Dockerfile
     ports:
       - "8002:8002"
     depends_on:
@@ -11,15 +11,15 @@ services:
 
   frontend:
     build:
-      context: ./devops/startup_api/Docker-files/web
-      dockerfile: Docker-files/Dockerfile
+      context: /home/devops/startup_api/Docker-files/web
+      dockerfile: /home/devops/startup_api/Docker-files/web/Dockerfile
     ports:
       - "3002:3002"
 
   database:
     build:
-      context: ./devops/startup_api/Docker-files/db
-      dockerfile: Docker-files/Dockerfile
+      context: /home/devops/startup_api/Docker-files/db
+      dockerfile: /home/devops/startup_api/Docker-files/db/Dockerfile
     environment:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: db
