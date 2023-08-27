@@ -1,0 +1,29 @@
+version: '3'
+services:
+  backend:
+    build:
+      context: ./devops/startup_api/Docker-files/app
+      dockerfile: Docker-files/Dockerfile
+    ports:
+      - "8002:8002"
+    depends_on:
+      - database
+
+  frontend:
+    build:
+      context: ./devops/startup_api/Docker-files/web
+      dockerfile: Docker-files/Dockerfile
+    ports:
+      - "3002:3002"
+
+  database:
+    build:
+      context: ./devops/startup_api/Docker-files/db
+      dockerfile: Docker-files/Dockerfile
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: db
+      MYSQL_USER: dbuser
+      MYSQL_PASSWORD: dbpassword
+    ports:
+      - "3306:3306"
